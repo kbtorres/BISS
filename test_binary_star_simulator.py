@@ -1,6 +1,11 @@
 """
-Test script for binary star system simulator
-Validates core functionality and calculations
+Test script for binary star system simulator.
+
+This module contains unit tests to validate the core functionality and calculations
+of the binary star system simulator, including orbital mechanics, radial velocities,
+and Doppler shift calculations.
+
+Run with: python test_binary_star_simulator.py
 """
 
 import numpy as np

@@ -5,7 +5,6 @@ Simulates the orbital motion of two stars in a binary system and calculates thei
 
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
 import sys
 
 
@@ -146,9 +145,11 @@ def plot_orbital_motion(system, num_points=200):
     ax.plot(x1, y1, 'b-', alpha=0.3, label=f'Star 1 orbit ({system.mass1:.1f} M☉)')
     ax.plot(x2, y2, 'r-', alpha=0.3, label=f'Star 2 orbit ({system.mass2:.1f} M☉)')
     
-    # Plot starting positions
-    ax.plot(x1[0], y1[0], 'bo', markersize=15 * system.mass1, label='Star 1')
-    ax.plot(x2[0], y2[0], 'ro', markersize=15 * system.mass2, label='Star 2')
+    # Plot starting positions (with clamped marker sizes for visibility)
+    size1 = max(5, min(50, 15 * system.mass1))
+    size2 = max(5, min(50, 15 * system.mass2))
+    ax.plot(x1[0], y1[0], 'bo', markersize=size1, label='Star 1')
+    ax.plot(x2[0], y2[0], 'ro', markersize=size2, label='Star 2')
     
     # Plot center of mass
     ax.plot(0, 0, 'k+', markersize=15, mew=2, label='Center of Mass')
