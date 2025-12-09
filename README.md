@@ -97,6 +97,21 @@ python binary_star_simulator.py --interactive
 # Enter: 3.0, 0.5, 8.0, 600, 75
 ```
 
+### Running Pre-built Examples
+
+The repository includes an `examples.py` script that demonstrates various binary star configurations:
+
+```bash
+python examples.py
+```
+
+This will generate five example scenarios:
+1. Equal mass binary system
+2. High mass ratio system (star-planet like)
+3. Effect of orbital inclination on radial velocities
+4. Doppler shift visualization through the orbit
+5. Short period binary system
+
 ## Requirements
 
 - Python 3.7 or higher
