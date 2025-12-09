@@ -4,9 +4,7 @@ Demo script showing the capabilities of BISS
 This script demonstrates automated usage of the solar system simulator
 """
 
-import sys
-sys.path.insert(0, '/home/runner/work/BISS/BISS')
-from solar_system import SolarSystem, show_educational_facts
+from solar_system import SolarSystem, show_educational_facts, AU_TO_KM, SPEED_OF_LIGHT_KM_S
 import math
 
 def demo():
@@ -53,12 +51,12 @@ def demo():
     x2, y2 = mars.get_position()
     
     distance_au = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
-    distance_km = distance_au * 149597870.7
+    distance_km = distance_au * AU_TO_KM
     
     print(f"\nCurrent distance between Earth and Mars:")
     print(f"  {distance_au:.3f} AU")
     print(f"  {distance_km:.2e} km")
-    print(f"  Light takes {distance_km / 299792:.2f} seconds to travel this distance")
+    print(f"  Light takes {distance_km / SPEED_OF_LIGHT_KM_S:.2f} seconds to travel this distance")
     
     # Demo 6: Show educational content
     print("\n\n--- DEMO 6: Educational Content ---")

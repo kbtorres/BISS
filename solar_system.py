@@ -8,6 +8,10 @@ import math
 import time
 import sys
 
+# Constants
+SPEED_OF_LIGHT_KM_S = 299792.458  # Speed of light in km/s
+AU_TO_KM = 149597870.7  # Astronomical Unit in kilometers
+
 class CelestialBody:
     """Represents a celestial body in the solar system"""
     
@@ -48,7 +52,7 @@ class CelestialBody:
         """Calculate orbital velocity in km/s"""
         # Simplified calculation using circular orbit approximation
         # v = 2πr / T
-        distance_km = self.distance * 149597870.7  # Convert AU to km
+        distance_km = self.distance * AU_TO_KM  # Convert AU to km
         period_seconds = self.orbital_period * 24 * 3600
         velocity = (2 * math.pi * distance_km) / period_seconds
         return velocity
@@ -195,12 +199,12 @@ def calculate_distance(solar_system):
             x2, y2 = body2.get_position()
             
             distance_au = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
-            distance_km = distance_au * 149597870.7
+            distance_km = distance_au * AU_TO_KM
             
             print(f"\nDistance between {body1.name} and {body2.name}:")
             print(f"  {distance_au:.3f} AU")
             print(f"  {distance_km:.2e} km")
-            print(f"  {distance_km / 299792:.2f} light-seconds")
+            print(f"  {distance_km / SPEED_OF_LIGHT_KM_S:.2f} light-seconds")
         else:
             print("Invalid planet selection!")
     except (ValueError, IndexError):
